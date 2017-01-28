@@ -1,0 +1,31 @@
+{
+    "name": "p3ym4n/form-maker",
+    "type": "library",
+    "description": "form maker package for backend project",
+    "keywords": [
+        "form maker",
+        "laravel",
+    ],
+    "support": {
+        "issues": "https://github.com/p3ym4n/form-maker/issues",
+        "source": "https://github.com/p3ym4n/form-maker"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Peyman Goldaste",
+            "email": "me@p3ym4n.com",
+            "homepage": "http://p3ym4n.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "nesbot/carbon": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "p3ym4n\\FormMaker\\": "/"
+        }
+    },
+    "minimum-stability": "dev"
+}
