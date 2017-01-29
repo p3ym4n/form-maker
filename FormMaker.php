@@ -15,6 +15,7 @@ use App\Http\Assets\SortableAsset;
 use App\Http\Assets\TagsInputAsset;
 use Asset;
 use Illuminate\Database\Eloquent\Model;
+use p3ym4n\Jdate\JDate;
 use SplFileInfo;
 
 /**
@@ -197,20 +198,20 @@ final Class FormMaker {
     public function addText($name, $options = []) {
         
         //the prefix and suffix
-        $prefix   = '';
-        $openDiv  = '';
+        $prefix = '';
+        $openDiv = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
             $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv  = '<div class="input-group">';
+            $openDiv = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         $suffix = '';
         if (isset($options['suffix'])) {
             $suffix = '  <span class="input-group-addon">' . $options['suffix'] . '</span>';
             unset($options['suffix']);
-            $openDiv  = '<div class="input-group">';
+            $openDiv = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
@@ -253,18 +254,18 @@ final Class FormMaker {
         unset($options['suffix']);
         
         //the prefix and suffix
-        $prefix   = '';
-        $openDiv  = '';
+        $prefix = '';
+        $openDiv = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
             $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv  = '<div class="input-group">';
+            $openDiv = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix   = '  <span class="input-group-addon"><i></i></span>';
-        $openDiv  = '<div class="input-group">';
+        $suffix = '  <span class="input-group-addon"><i></i></span>';
+        $openDiv = '<div class="input-group">';
         $closeDiv = '</div>';
         
         if ( ! isset($options['dir'])) {
@@ -315,13 +316,13 @@ final Class FormMaker {
         unset($options['suffix']);
         
         //the prefix and suffix
-        $prefix   = '';
-        $openDiv  = '';
+        $prefix = '';
+        $openDiv = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
             $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv  = '<div class="input-group">';
+            $openDiv = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
@@ -330,8 +331,8 @@ final Class FormMaker {
             $currency = CURRENCY;
         }
         
-        $suffix   = '  <span class="input-group-addon">' . $currency . '</span>';
-        $openDiv  = '<div class="input-group">';
+        $suffix = '  <span class="input-group-addon">' . $currency . '</span>';
+        $openDiv = '<div class="input-group">';
         $closeDiv = '</div>';
         
         if ( ! isset($options['dir'])) {
@@ -406,18 +407,18 @@ final Class FormMaker {
         unset($options['suffix']);
         
         //the prefix and suffix
-        $prefix   = '';
-        $openDiv  = '';
+        $prefix = '';
+        $openDiv = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
             $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv  = '<div class="input-group">';
+            $openDiv = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix   = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-lock"></i></span>';
-        $openDiv  = '<div class="input-group">';
+        $suffix = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-lock"></i></span>';
+        $openDiv = '<div class="input-group">';
         $closeDiv = '</div>';
         
         $mains = $this->main($name, $options);
@@ -511,25 +512,25 @@ final Class FormMaker {
         $options['dir'] = 'ltr';
         
         //the prefix and suffix
-        $prefix   = '';
-        $openDiv  = '';
+        $prefix = '';
+        $openDiv = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
             $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv  = '<div class="input-group">';
+            $openDiv = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix   = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-calendar"></i></span>';
-        $openDiv  = '<div class="input-group">';
+        $suffix = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-calendar"></i></span>';
+        $openDiv = '<div class="input-group">';
         $closeDiv = '</div>';
         
         $mains = $this->main($name, $options);
         
         $value = $mains['value'];
         if ( ! empty($value)) {
-            $value = jdate($value)->format(FORMAT_ONLY_DATE);
+            $value = JDate::createFromFormat(FORMAT_ONLY_DATE, $value)->format(FORMAT_ONLY_DATE);
             list($year, $month, $day) = explode('/', $value);
             $value = json_encode([$year, $month, $day], JSON_NUMERIC_CHECK);
         }
@@ -607,25 +608,25 @@ final Class FormMaker {
         $options['dir'] = 'ltr';
         
         //the prefix and suffix
-        $prefix   = '';
-        $openDiv  = '';
+        $prefix = '';
+        $openDiv = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
             $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv  = '<div class="input-group">';
+            $openDiv = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix   = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-calendar"></i></span>';
-        $openDiv  = '<div class="input-group">';
+        $suffix = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-calendar"></i></span>';
+        $openDiv = '<div class="input-group">';
         $closeDiv = '</div>';
         
         $mains = $this->main($name, $options);
         
         $value = $mains['value'];
         if ( ! empty($value)) {
-            $value = jdate($value)->format(FORMAT_FULL_DATE);
+            $value = JDate::createFromFormat(FORMAT_FULL_DATE, $value)->format(FORMAT_FULL_DATE);
             $dates = explode(' ', $value);
             if ( ! isset($dates[1])) {
                 $dates[1] = '00:00:00';
@@ -709,25 +710,25 @@ final Class FormMaker {
         $options['dir'] = 'ltr';
         
         //the prefix and suffix
-        $prefix   = '';
-        $openDiv  = '';
+        $prefix = '';
+        $openDiv = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
             $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv  = '<div class="input-group">';
+            $openDiv = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix   = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-history"></i></span>';
-        $openDiv  = '<div class="input-group">';
+        $suffix = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-history"></i></span>';
+        $openDiv = '<div class="input-group">';
         $closeDiv = '</div>';
         
         $mains = $this->main($name, $options);
         
         $value = $mains['value'];
         if ( ! empty($value)) {
-            $value = jdate($value)->format(FORMAT_ONLY_TIME);
+            $value = JDate::createFromFormat(FORMAT_ONLY_TIME, $value)->format(FORMAT_ONLY_TIME);
             list($hour, $minute, $second) = explode(':', $value);
             
             $value = json_encode([$hour, $minute, $second], JSON_NUMERIC_CHECK);
@@ -806,10 +807,10 @@ final Class FormMaker {
         
         //getting the width & height
         $height = 78;
-        $width  = 78;
+        $width = 78;
         if (isset($options['height'])) {
             $height = (int) $options['height'];
-            $width  = $height;
+            $width = $height;
         }
         if (isset($options['width'])) {
             $width = (int) $options['width'];
@@ -822,13 +823,13 @@ final Class FormMaker {
         $mains['class'] = str_replace('form-control ', '', $mains['class']);
         
         //making a unique names
-        $rawName     = str_replace(['[', ']'], '', studly_case($mains['name']));
+        $rawName = str_replace(['[', ']'], '', studly_case($mains['name']));
         $delFunction = 'del' . $rawName;
         
         $classHaveImg = '';
-        $imgPath      = '';
+        $imgPath = '';
         if ( ! empty($mains['value'])) {
-            $imgPath      = config('filesystems.disks.local.url') . $mains['value'];
+            $imgPath = config('filesystems.disks.local.url') . $mains['value'];
             $classHaveImg = 'haveImg';
         }
         
@@ -910,10 +911,10 @@ final Class FormMaker {
         
         //getting the width & height
         $height = 78;
-        $width  = 78;
+        $width = 78;
         if (isset($options['height'])) {
             $height = (int) $options['height'];
-            $width  = $height;
+            $width = $height;
         }
         if (isset($options['width'])) {
             $width = (int) $options['width'];
@@ -933,11 +934,11 @@ final Class FormMaker {
         $mains['class'] = str_replace('form-control ', '', $mains['class']);
         
         //making a unique names
-        $rawName     = str_replace(['[', ']'], '', studly_case($mains['name']));
+        $rawName = str_replace(['[', ']'], '', studly_case($mains['name']));
         $addFunction = 'add' . $rawName;
         $delFunction = 'del' . $rawName;
-        $indexMax    = 'max' . $rawName;
-        $adder       = 'btn' . $rawName;
+        $indexMax = 'max' . $rawName;
+        $adder = 'btn' . $rawName;
         
         //the main html part
         $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
@@ -1074,21 +1075,21 @@ final Class FormMaker {
         $mains['class'] = str_replace('form-control ', '', $mains['class']);
         
         //making a unique names
-        $rawName     = str_replace(['[', ']'], '', studly_case($mains['name']));
+        $rawName = str_replace(['[', ']'], '', studly_case($mains['name']));
         $delFunction = 'del' . $rawName;
         
         $classHaveFile = '';
-        $icon          = 'fa-file';
-        $dirToGo       = '';
+        $icon = 'fa-file';
+        $dirToGo = '';
         if ( ! empty($mains['value'])) {
             
             $dirToGo = pathinfo($mains['value'], PATHINFO_DIRNAME);
             if ($dirToGo == DS) {
                 $dirToGo = '';
             }
-            $basePath      = config('filesystems.disks.local.root');
-            $spl           = new SplFileInfo($basePath . $mains['value']);
-            $icon          = File::getType(File::typeDetect($spl), 'icon');
+            $basePath = config('filesystems.disks.local.root');
+            $spl = new SplFileInfo($basePath . $mains['value']);
+            $icon = File::getType(File::typeDetect($spl), 'icon');
             $classHaveFile = 'haveFile';
         }
         
@@ -1172,11 +1173,11 @@ final Class FormMaker {
         $mains['class'] = str_replace('form-control ', '', $mains['class']);
         
         //making a unique names
-        $rawName     = str_replace(['[', ']'], '', studly_case($mains['name']));
+        $rawName = str_replace(['[', ']'], '', studly_case($mains['name']));
         $addFunction = 'add' . $rawName;
         $delFunction = 'del' . $rawName;
-        $indexMax    = 'max' . $rawName;
-        $adder       = 'btn' . $rawName;
+        $indexMax = 'max' . $rawName;
+        $adder = 'btn' . $rawName;
         
         //the main html part
         $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
@@ -1198,14 +1199,14 @@ final Class FormMaker {
         
         //getting the values and generating the exclusive part
         $basePath = config('filesystems.disks.local.root');
-        $values   = $mains['value'];
+        $values = $mains['value'];
         if ( ! is_array($values)) {
             $values = explode(',', $values);
         }
         $callScript = '';
         foreach ($values as $value) {
             if ( ! empty($value)) {
-                $spl     = new SplFileInfo($basePath . $value);
+                $spl = new SplFileInfo($basePath . $value);
                 $dirToGo = pathinfo($value, PATHINFO_DIRNAME);
                 if ($dirToGo == DS) {
                     $dirToGo = '';
@@ -1455,12 +1456,12 @@ final Class FormMaker {
      */
     public function addRadio($name, $options = []) {
         
-        $mains          = $this->main($name, $options);
+        $mains = $this->main($name, $options);
         $mains['class'] = str_replace('form-control', '', $mains['class']);
         
         if (isset($options['list'])) {
-            $checked  = $mains['value'];
-            $mod      = 12 % count($options['list']);
+            $checked = $mains['value'];
+            $mod = 12 % count($options['list']);
             $colClass = 'btn btn-default';
             if ($mod == 0) {
                 $colClass .= ' col-xs-' . (12 / count($options['list']));
@@ -1470,10 +1471,10 @@ final Class FormMaker {
             foreach ($options['list'] as $value => $item) {
                 
                 $checkClass = '';
-                $checkAttr  = '';
+                $checkAttr = '';
                 if ("$value" == "$checked") {
                     $checkClass = ' active';
-                    $checkAttr  = ' checked="checked" ';
+                    $checkAttr = ' checked="checked" ';
                 }
                 $temp .= '<label class="' . $colClass . $checkClass . '">
                                 <input ' . $checkAttr . ' type="radio" name="' . $mains['name'] . '" class="' . $mains['class'] . '" value="' . $value . '" autocomplete="off" >' . $item . '
@@ -1504,7 +1505,7 @@ final Class FormMaker {
      */
     public function addCheckBox($name, $options = []) {
         
-        $mains          = $this->main($name, $options);
+        $mains = $this->main($name, $options);
         $mains['class'] = str_replace('form-control', '', $mains['class']);
         
         if (isset($options['list']) && ! empty($options['list'])) {
@@ -1512,7 +1513,7 @@ final Class FormMaker {
             if ( ! is_array($checked)) {
                 $checked = [$checked];
             }
-            $mod      = 12 % count($options['list']);
+            $mod = 12 % count($options['list']);
             $colClass = 'btn btn-default';
             if ($mod == 0) {
                 $colClass .= ' col-xs-' . (12 / count($options['list']));
@@ -1522,11 +1523,11 @@ final Class FormMaker {
             foreach ($options['list'] as $value => $item) {
                 
                 $checkClass = '';
-                $checkAttr  = '';
+                $checkAttr = '';
                 
                 if (in_array($value, $checked)) {
                     $checkClass = ' active';
-                    $checkAttr  = ' checked="checked" ';
+                    $checkAttr = ' checked="checked" ';
                 }
                 $temp .= '<label class="' . $colClass . $checkClass . '">
                                 <input ' . $checkAttr . ' type="checkbox" name="' . $mains['name'] . '" class="' . $mains['class'] . '" value="' . $value . '" autocomplete="off" >' . $item . '
@@ -1558,7 +1559,7 @@ final Class FormMaker {
         
         SelectAsset::add();
         
-        $mains  = $this->main($name, $options);
+        $mains = $this->main($name, $options);
         $prompt = '';
         if ( ! in_array('multiple', $options)) {
             if (isset($options['prompt'])) {
@@ -1726,7 +1727,7 @@ final Class FormMaker {
             $data = $args[0];
         } else {
             $class = $args[0];
-            $data  = $args[1];
+            $data = $args[1];
         }
         
         //the callable cant be launched when added in the string
@@ -1926,7 +1927,7 @@ final Class FormMaker {
         $this->method = $method;
         if ( ! preg_grep("/{$this->method}/i", ['get', 'post'])) {
             $this->methodField = '<input type="hidden" name="_method" value="' . $this->method . '">';
-            $this->method      = 'POST';
+            $this->method = 'POST';
         }
         
         return $this;
@@ -1953,7 +1954,7 @@ final Class FormMaker {
             $holderSize = $remainSize;
         }
         
-        $this->labelClass  = 'col-xs-' . $labelSize;
+        $this->labelClass = 'col-xs-' . $labelSize;
         $this->holderClass = 'col-xs-' . $holderSize;
         
         return $this;
@@ -2100,7 +2101,7 @@ final Class FormMaker {
     private function extra(array $mains, array $options = []) {
         
         unset($options['value']);
-        $remains          = array_diff($options, $mains);
+        $remains = array_diff($options, $mains);
         $remains['class'] = $mains['class'];
         
         $extra = [];
