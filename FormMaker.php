@@ -15,7 +15,7 @@ use App\Http\Assets\SortableAsset;
 use App\Http\Assets\TagsInputAsset;
 use Asset;
 use Illuminate\Database\Eloquent\Model;
-use p3ym4n\Jdate\JDate;
+use p3ym4n\JDate\JDate;
 use SplFileInfo;
 
 /**
