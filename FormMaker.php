@@ -15,7 +15,7 @@ use App\Http\Assets\SortableAsset;
 use App\Http\Assets\TagsInputAsset;
 use Asset;
 use Illuminate\Database\Eloquent\Model;
-use p3ym4n\Jdate\JDate;
+use p3ym4n\JDte\JDate;
 use SplFileInfo;
 
 /**
@@ -530,7 +530,11 @@ final Class FormMaker {
         
         $value = $mains['value'];
         if ( ! empty($value)) {
-            $value = JDate::createFromFormat(FORMAT_ONLY_DATE, $value)->format(FORMAT_ONLY_DATE);
+            if ($value instanceof Carbon\Carbon) {
+                $value = JDate::createFromCarbon($value)->format(FORMAT_ONLY_DATE);
+            } else {
+                $value = JDate::createFromFormat(FORMAT_ONLY_DATE, $value)->format(FORMAT_ONLY_DATE);
+            }
             list($year, $month, $day) = explode('/', $value);
             $value = json_encode([$year, $month, $day], JSON_NUMERIC_CHECK);
         }
@@ -626,7 +630,11 @@ final Class FormMaker {
         
         $value = $mains['value'];
         if ( ! empty($value)) {
-            $value = JDate::createFromFormat(FORMAT_FULL_DATE, $value)->format(FORMAT_FULL_DATE);
+            if ($value instanceof Carbon\Carbon) {
+                $value = JDate::createFromCarbon($value)->format(FORMAT_ONLY_DATE);
+            } else {
+                $value = JDate::createFromFormat(FORMAT_ONLY_DATE, $value)->format(FORMAT_ONLY_DATE);
+            }
             $dates = explode(' ', $value);
             if ( ! isset($dates[1])) {
                 $dates[1] = '00:00:00';
@@ -728,7 +736,11 @@ final Class FormMaker {
         
         $value = $mains['value'];
         if ( ! empty($value)) {
-            $value = JDate::createFromFormat(FORMAT_ONLY_TIME, $value)->format(FORMAT_ONLY_TIME);
+            if ($value instanceof Carbon\Carbon) {
+                $value = JDate::createFromCarbon($value)->format(FORMAT_ONLY_DATE);
+            } else {
+                $value = JDate::createFromFormat(FORMAT_ONLY_DATE, $value)->format(FORMAT_ONLY_DATE);
+            }
             list($hour, $minute, $second) = explode(':', $value);
             
             $value = json_encode([$hour, $minute, $second], JSON_NUMERIC_CHECK);
