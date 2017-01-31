@@ -13,7 +13,7 @@ use App\Http\Assets\SelectAjaxAsset;
 use App\Http\Assets\SelectAsset;
 use App\Http\Assets\SortableAsset;
 use App\Http\Assets\TagsInputAsset;
-use Asset;
+use Facades\p3ym4n\AssetManager\Asset;
 use Illuminate\Database\Eloquent\Model;
 use p3ym4n\JDate\JDate;
 use SplFileInfo;
