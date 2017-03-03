@@ -161,12 +161,12 @@ final Class FormMaker {
         
         $mains = $this->main($name, $options);
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                <p id="'.$mains['id'].'" class="form-control-static" >'.$mains['value'].'</p>
-                                '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                <p id="' . $mains['id'] . '" class="form-control-static" >' . $mains['value'] . '</p>
+                                ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -182,7 +182,7 @@ final Class FormMaker {
     public function addHidden($name, $options = []) {
         
         $mains = $this->main($name, $options);
-        $this->form .= '<input type="hidden" id="'.$mains['id'].'" name="'.$mains['name'].'" value="'.$mains['value'].'"  '.$this->extra($mains, $options).' >';
+        $this->form .= '<input type="hidden" id="' . $mains['id'] . '" name="' . $mains['name'] . '" value="' . $mains['value'] . '"  ' . $this->extra($mains, $options) . ' >';
         
         return $this;
     }
@@ -198,20 +198,20 @@ final Class FormMaker {
     public function addText($name, $options = []) {
         
         //the prefix and suffix
-        $prefix = '';
-        $openDiv = '';
+        $prefix   = '';
+        $openDiv  = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
-            $prefix = '  <span class="input-group-addon">'.$options['prefix'].'</span>';
+            $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv = '<div class="input-group">';
+            $openDiv  = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         $suffix = '';
         if (isset($options['suffix'])) {
-            $suffix = '  <span class="input-group-addon">'.$options['suffix'].'</span>';
+            $suffix = '  <span class="input-group-addon">' . $options['suffix'] . '</span>';
             unset($options['suffix']);
-            $openDiv = '<div class="input-group">';
+            $openDiv  = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
@@ -223,16 +223,16 @@ final Class FormMaker {
         
         $mains = $this->main($name, $options);
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                '.$openDiv.'
-                                '.$prefix.'
-                                <input type="'.$type.'" id="'.$mains['id'].'" name="'.$mains['name'].'" value="'.$mains['value'].'" '.$this->extra($mains, $options).' >
-                                '.$suffix.'
-                                '.$closeDiv.'
-                                '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                ' . $openDiv . '
+                                ' . $prefix . '
+                                <input type="' . $type . '" id="' . $mains['id'] . '" name="' . $mains['name'] . '" value="' . $mains['value'] . '" ' . $this->extra($mains, $options) . ' >
+                                ' . $suffix . '
+                                ' . $closeDiv . '
+                                ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -254,18 +254,18 @@ final Class FormMaker {
         unset($options['suffix']);
         
         //the prefix and suffix
-        $prefix = '';
-        $openDiv = '';
+        $prefix   = '';
+        $openDiv  = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
-            $prefix = '  <span class="input-group-addon">'.$options['prefix'].'</span>';
+            $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv = '<div class="input-group">';
+            $openDiv  = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix = '  <span class="input-group-addon"><i></i></span>';
-        $openDiv = '<div class="input-group">';
+        $suffix   = '  <span class="input-group-addon"><i></i></span>';
+        $openDiv  = '<div class="input-group">';
         $closeDiv = '</div>';
         
         if ( ! isset($options['dir'])) {
@@ -278,16 +278,16 @@ final Class FormMaker {
         
         $mains = $this->main($name, $options);
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.' colorpicker-component">
-                                    '.$openDiv.'
-                                    '.$prefix.'
-                                    <input type="text" id="'.$mains['id'].'" name="'.$mains['name'].'" value="'.$mains['value'].'" '.$this->extra($mains, $options).' >
-                                    '.$suffix.'
-                                    '.$closeDiv.'
-                                    '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . ' colorpicker-component">
+                                    ' . $openDiv . '
+                                    ' . $prefix . '
+                                    <input type="text" id="' . $mains['id'] . '" name="' . $mains['name'] . '" value="' . $mains['value'] . '" ' . $this->extra($mains, $options) . ' >
+                                    ' . $suffix . '
+                                    ' . $closeDiv . '
+                                    ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -316,13 +316,13 @@ final Class FormMaker {
         unset($options['suffix']);
         
         //the prefix and suffix
-        $prefix = '';
-        $openDiv = '';
+        $prefix   = '';
+        $openDiv  = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
-            $prefix = '  <span class="input-group-addon">'.$options['prefix'].'</span>';
+            $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv = '<div class="input-group">';
+            $openDiv  = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
@@ -331,8 +331,8 @@ final Class FormMaker {
             $currency = CURRENCY;
         }
         
-        $suffix = '  <span class="input-group-addon">'.$currency.'</span>';
-        $openDiv = '<div class="input-group">';
+        $suffix   = '  <span class="input-group-addon">' . $currency . '</span>';
+        $openDiv  = '<div class="input-group">';
         $closeDiv = '</div>';
         
         if ( ! isset($options['dir'])) {
@@ -341,16 +341,16 @@ final Class FormMaker {
         
         $mains = $this->main($name, $options);
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                    '.$openDiv.'
-                                    '.$prefix.'
-                                    <input type="text" id="'.$mains['id'].'" name="'.$mains['name'].'" value="'.$mains['value'].'" '.$this->extra($mains, $options).' >
-                                    '.$suffix.'
-                                    '.$closeDiv.'
-                                    '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                    ' . $openDiv . '
+                                    ' . $prefix . '
+                                    <input type="text" id="' . $mains['id'] . '" name="' . $mains['name'] . '" value="' . $mains['value'] . '" ' . $this->extra($mains, $options) . ' >
+                                    ' . $suffix . '
+                                    ' . $closeDiv . '
+                                    ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -380,12 +380,12 @@ final Class FormMaker {
         
         $mains = $this->main($name, $options);
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                <input type="text" id="'.$mains['id'].'" name="'.$mains['name'].'" value="'.$mains['value'].'" '.$this->extra($mains, $options).' >
-                                '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                <input type="text" id="' . $mains['id'] . '" name="' . $mains['name'] . '" value="' . $mains['value'] . '" ' . $this->extra($mains, $options) . ' >
+                                ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -407,32 +407,32 @@ final Class FormMaker {
         unset($options['suffix']);
         
         //the prefix and suffix
-        $prefix = '';
-        $openDiv = '';
+        $prefix   = '';
+        $openDiv  = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
-            $prefix = '  <span class="input-group-addon">'.$options['prefix'].'</span>';
+            $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv = '<div class="input-group">';
+            $openDiv  = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-lock"></i></span>';
-        $openDiv = '<div class="input-group">';
+        $suffix   = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-lock"></i></span>';
+        $openDiv  = '<div class="input-group">';
         $closeDiv = '</div>';
         
         $mains = $this->main($name, $options);
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                    '.$openDiv.'
-                                    '.$prefix.'
-                                    <input type="password" id="'.$mains['id'].'" name="'.$mains['name'].'" '.$this->extra($mains, $options).' >
-                                    '.$suffix.'
-                                    '.$closeDiv.'
-                                    '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                    ' . $openDiv . '
+                                    ' . $prefix . '
+                                    <input type="password" id="' . $mains['id'] . '" name="' . $mains['name'] . '" ' . $this->extra($mains, $options) . ' >
+                                    ' . $suffix . '
+                                    ' . $closeDiv . '
+                                    ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -453,12 +453,12 @@ final Class FormMaker {
         
         $mains = $this->main($name, $options);
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                <textarea id="'.$mains['id'].'" name="'.$mains['name'].'" '.$this->extra($mains, $options).' >'.$mains['value'].'</textarea>
-                                '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                <textarea id="' . $mains['id'] . '" name="' . $mains['name'] . '" ' . $this->extra($mains, $options) . ' >' . $mains['value'] . '</textarea>
+                                ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -479,17 +479,17 @@ final Class FormMaker {
         
         $mains = $this->main($name, $options);
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                <textarea id="'.$mains['id'].'" name="'.$mains['name'].'" '.$this->extra($mains, $options).' >'.$mains['value'].'</textarea>
-                                '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                <textarea id="' . $mains['id'] . '" name="' . $mains['name'] . '" ' . $this->extra($mains, $options) . ' >' . $mains['value'] . '</textarea>
+                                ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
         Asset::addScript("$(document).ready(function(){
-            $('#".$mains['id']."').ckeditor();
+            $('#" . $mains['id'] . "').ckeditor();
         });");
         
         return $this;
@@ -512,18 +512,18 @@ final Class FormMaker {
         $options['dir'] = 'ltr';
         
         //the prefix and suffix
-        $prefix = '';
-        $openDiv = '';
+        $prefix   = '';
+        $openDiv  = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
-            $prefix = '  <span class="input-group-addon">'.$options['prefix'].'</span>';
+            $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv = '<div class="input-group">';
+            $openDiv  = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-calendar"></i></span>';
-        $openDiv = '<div class="input-group">';
+        $suffix   = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-calendar"></i></span>';
+        $openDiv  = '<div class="input-group">';
         $closeDiv = '</div>';
         
         $mains = $this->main($name, $options);
@@ -535,16 +535,16 @@ final Class FormMaker {
             $value = json_encode([$year, $month, $day], JSON_NUMERIC_CHECK);
         }
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                    '.$openDiv.'
-                                    '.$prefix.'
-                                    <input type="text" id="'.$mains['id'].'" name="'.$mains['name'].'" value="" data-value="'.$value.'" '.$this->extra($mains, $options).' >
-                                    '.$suffix.'
-                                    '.$closeDiv.'
-                                    '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                    ' . $openDiv . '
+                                    ' . $prefix . '
+                                    <input type="text" id="' . $mains['id'] . '" name="' . $mains['name'] . '" value="" data-value="' . $value . '" ' . $this->extra($mains, $options) . ' >
+                                    ' . $suffix . '
+                                    ' . $closeDiv . '
+                                    ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -608,18 +608,18 @@ final Class FormMaker {
         $options['dir'] = 'ltr';
         
         //the prefix and suffix
-        $prefix = '';
-        $openDiv = '';
+        $prefix   = '';
+        $openDiv  = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
-            $prefix = '  <span class="input-group-addon">'.$options['prefix'].'</span>';
+            $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv = '<div class="input-group">';
+            $openDiv  = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-calendar"></i></span>';
-        $openDiv = '<div class="input-group">';
+        $suffix   = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-calendar"></i></span>';
+        $openDiv  = '<div class="input-group">';
         $closeDiv = '</div>';
         
         $mains = $this->main($name, $options);
@@ -637,16 +637,16 @@ final Class FormMaker {
             $value = json_encode([$year, $month, $day, $hour, $minute, $second], JSON_NUMERIC_CHECK);
         }
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                    '.$openDiv.'
-                                    '.$prefix.'
-                                    <input type="text" id="'.$mains['id'].'" name="'.$mains['name'].'" value="" data-value="'.$value.'" '.$this->extra($mains, $options).' >
-                                    '.$suffix.'
-                                    '.$closeDiv.'
-                                    '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                    ' . $openDiv . '
+                                    ' . $prefix . '
+                                    <input type="text" id="' . $mains['id'] . '" name="' . $mains['name'] . '" value="" data-value="' . $value . '" ' . $this->extra($mains, $options) . ' >
+                                    ' . $suffix . '
+                                    ' . $closeDiv . '
+                                    ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -710,18 +710,18 @@ final Class FormMaker {
         $options['dir'] = 'ltr';
         
         //the prefix and suffix
-        $prefix = '';
-        $openDiv = '';
+        $prefix   = '';
+        $openDiv  = '';
         $closeDiv = '';
         if (isset($options['prefix'])) {
-            $prefix = '  <span class="input-group-addon">'.$options['prefix'].'</span>';
+            $prefix = '  <span class="input-group-addon">' . $options['prefix'] . '</span>';
             unset($options['prefix']);
-            $openDiv = '<div class="input-group">';
+            $openDiv  = '<div class="input-group">';
             $closeDiv = '</div>';
         }
         
-        $suffix = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-history"></i></span>';
-        $openDiv = '<div class="input-group">';
+        $suffix   = '  <span class="input-group-addon"><i class="fa fa-lg fa-fw fa-history"></i></span>';
+        $openDiv  = '<div class="input-group">';
         $closeDiv = '</div>';
         
         $mains = $this->main($name, $options);
@@ -734,16 +734,16 @@ final Class FormMaker {
             $value = json_encode([$hour, $minute, $second], JSON_NUMERIC_CHECK);
         }
         
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <label for="'.$mains['id'].'" class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                    '.$openDiv.'
-                                    '.$prefix.'
-                                    <input type="text" id="'.$mains['id'].'" name="'.$mains['name'].'" value="" data-value="'.$value.'" '.$this->extra($mains, $options).' >
-                                    '.$suffix.'
-                                    '.$closeDiv.'
-                                    '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <label for="' . $mains['id'] . '" class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                    ' . $openDiv . '
+                                    ' . $prefix . '
+                                    <input type="text" id="' . $mains['id'] . '" name="' . $mains['name'] . '" value="" data-value="' . $value . '" ' . $this->extra($mains, $options) . ' >
+                                    ' . $suffix . '
+                                    ' . $closeDiv . '
+                                    ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -807,10 +807,10 @@ final Class FormMaker {
         
         //getting the width & height
         $height = 78;
-        $width = 78;
+        $width  = 78;
         if (isset($options['height'])) {
             $height = (int) $options['height'];
-            $width = $height;
+            $width  = $height;
         }
         if (isset($options['width'])) {
             $width = (int) $options['width'];
@@ -823,13 +823,13 @@ final Class FormMaker {
         $mains['class'] = str_replace('form-control ', '', $mains['class']);
         
         //making a unique names
-        $rawName = str_replace(['[', ']'], '', studly_case($mains['name']));
-        $delFunction = 'del'.$rawName;
+        $rawName     = str_replace(['[', ']'], '', studly_case($mains['name']));
+        $delFunction = 'del' . $rawName;
         
         $classHaveImg = '';
-        $imgPath = '';
+        $imgPath      = '';
         if ( ! empty($mains['value'])) {
-            $imgPath = config('filesystems.disks.local.url').$mains['value'];
+            $imgPath      = config('filesystems.disks.local.url') . $mains['value'];
             $classHaveImg = 'haveImg';
         }
         
@@ -839,27 +839,27 @@ final Class FormMaker {
         }
         
         //the main html part
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-            <div class="'.$this->labelClass.'">
-                <label for="'.$mains['id'].'" class="control-label pull-left">'.$mains['title'].'</label>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+            <div class="' . $this->labelClass . '">
+                <label for="' . $mains['id'] . '" class="control-label pull-left">' . $mains['title'] . '</label>
                 <div class="clearfix"></div>
             </div>
-            <div class="'.$this->holderClass.'">
-                <div class="clearfix" id="'.$mains['id'].'-inner-div">
-                    <div class="imgBox '.$classHaveImg.'" id="'.$mains['id'].'0-parent" >
-						<button type="button" class="btn btn-danger btn-sm boxPurger tooltips" title="'.trans('messages.delete').'" onclick="'.$delFunction.'(this);" >
+            <div class="' . $this->holderClass . '">
+                <div class="clearfix" id="' . $mains['id'] . '-inner-div">
+                    <div class="imgBox ' . $classHaveImg . '" id="' . $mains['id'] . '0-parent" >
+						<button type="button" class="btn btn-danger btn-sm boxPurger tooltips" title="' . trans('messages.delete') . '" onclick="' . $delFunction . '(this);" >
 							<i class="fa fa-trash-o"></i>
 						</button>
-						<button type="button" onclick="callLibrary(\''.$mains['id'].'0\' , \''.File::TYPE_IMAGE.'\' , \''.$dirToGo.
-                       '\');" class="btn btn-default imgSelector tooltips" title="'.trans('messages.click to choose file').'" data-placement="left" >
-							<img src="'.$imgPath.'" />
+						<button type="button" onclick="callLibrary(\'' . $mains['id'] . '0\' , \'' . File::TYPE_IMAGE . '\' , \'' . $dirToGo .
+                       '\');" class="btn btn-default imgSelector tooltips" title="' . trans('messages.click to choose file') . '" data-placement="left" >
+							<img src="' . $imgPath . '" />
 							<i class="fa fa-file-image-o"></i>
-							<input type="hidden" id="'.$mains['id'].'0" name="'.$mains['name'].'" value="'.$mains['value'].'" >
+							<input type="hidden" id="' . $mains['id'] . '0" name="' . $mains['name'] . '" value="' . $mains['value'] . '" >
 						</button>
 					</div>
                 </div>
-                '.$mains['info'].'
-                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+                ' . $mains['info'] . '
+                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
             </div>
         </div>';
         
@@ -911,10 +911,10 @@ final Class FormMaker {
         
         //getting the width & height
         $height = 78;
-        $width = 78;
+        $width  = 78;
         if (isset($options['height'])) {
             $height = (int) $options['height'];
-            $width = $height;
+            $width  = $height;
         }
         if (isset($options['width'])) {
             $width = (int) $options['width'];
@@ -934,26 +934,26 @@ final Class FormMaker {
         $mains['class'] = str_replace('form-control ', '', $mains['class']);
         
         //making a unique names
-        $rawName = str_replace(['[', ']'], '', studly_case($mains['name']));
-        $addFunction = 'add'.$rawName;
-        $delFunction = 'del'.$rawName;
-        $indexMax = 'max'.$rawName;
-        $adder = 'btn'.$rawName;
+        $rawName     = str_replace(['[', ']'], '', studly_case($mains['name']));
+        $addFunction = 'add' . $rawName;
+        $delFunction = 'del' . $rawName;
+        $indexMax    = 'max' . $rawName;
+        $adder       = 'btn' . $rawName;
         
         //the main html part
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <div class="'.$this->labelClass.'">
-                                <label for="'.$mains['id'].'" class="control-label pull-left">'.$mains['title'].'</label>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <div class="' . $this->labelClass . '">
+                                <label for="' . $mains['id'] . '" class="control-label pull-left">' . $mains['title'] . '</label>
                                 <div class="clearfix"></div>
-                                <button id="'.$adder.'" type="button" class="btn btn-info tooltips btn-add" data-placement="bottom" title="'.trans('words.add pic').'" onclick="'.
-                       $addFunction.'(\''.$mains['id'].'\' , \''.$mains['name'].'\' , \'\', \'\', \'\' );" >
+                                <button id="' . $adder . '" type="button" class="btn btn-info tooltips btn-add" data-placement="bottom" title="' . trans('words.add pic') . '" onclick="' .
+                       $addFunction . '(\'' . $mains['id'] . '\' , \'' . $mains['name'] . '\' , \'\', \'\', \'\' );" >
 					                <i class="fa fa-lg fa-plus"></i>
 					            </button>
                             </div>
-                            <div class="'.$this->holderClass.'">
-                                <div class="clearfix" id="'.$mains['id'].'-inner-div"></div>
-                                '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+                            <div class="' . $this->holderClass . '">
+                                <div class="clearfix" id="' . $mains['id'] . '-inner-div"></div>
+                                ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -965,7 +965,7 @@ final Class FormMaker {
         $callScript = '';
         foreach ($values as $value) {
             if ( ! empty($value)) {
-                $imgPath = url('/upload').$value;
+                $imgPath = config('filesystem.disks.local.url') . $value;
                 $dirToGo = pathinfo($value, PATHINFO_DIRNAME);
                 if ($dirToGo == DS) {
                     $dirToGo = '';
@@ -989,7 +989,7 @@ final Class FormMaker {
 				
 				var count = $('#' + div + '-inner-div > .imgBox').length;
 				
-				".($max == 0 ? "" : "if({$indexMax} > count ){")."
+				" . ($max == 0 ? "" : "if({$indexMax} > count ){") . "
 					var classHaveImg = 'haveImg';
 					if(typeof(img) == 'undefined' || img == ''){
 						img = '';
@@ -997,11 +997,11 @@ final Class FormMaker {
 					} 
 					
 					$('#' + div + '-inner-div').append('<div class=\"imgBox ' + classHaveImg + '\" id=\"' + div + picIndex + '-parent\" >'+
-									'<button type=\"button\" class=\"btn btn-danger btn-sm boxRemover \" title=\"".trans('messages.delete')."\" onclick=\"{$delFunction}(this);\" >'+
+									'<button type=\"button\" class=\"btn btn-danger btn-sm boxRemover \" title=\"" . trans('messages.delete') . "\" onclick=\"{$delFunction}(this);\" >'+
 				                        '<i class=\"fa fa-trash-o\"></i>'+
 				                    '</button>'+
-				                    '<button type=\"button\" onclick=\"callLibrary(\'' + div + picIndex + '\' , \'".File::TYPE_IMAGE.
-                         "\' , \'' + toGo + '\' );\" class=\"btn btn-default imgSelector \" title=\"".trans('messages.click to choose file')."\" data-placement=\"left\" >'+
+				                    '<button type=\"button\" onclick=\"callLibrary(\'' + div + picIndex + '\' , \'" . File::TYPE_IMAGE .
+                         "\' , \'' + toGo + '\' );\" class=\"btn btn-default imgSelector \" title=\"" . trans('messages.click to choose file') . "\" data-placement=\"left\" >'+
 					                    '<img src=\"'+path+'\" />'+
 					                    '<i class=\"fa fa-file-image-o\"></i>'+
 					                    '<input type=\"hidden\" id=\"' + div + picIndex + '\" name=\"' + name + '\" value=\"' + img + '\" >'+
@@ -1012,8 +1012,8 @@ final Class FormMaker {
 					
 					picIndex++;	
 				
-				".($max == 0 ? "" : "if({$indexMax} == count+1){ $('#{$adder}').slideUp();}")."
-				".($max == 0 ? "" : "}")."
+				" . ($max == 0 ? "" : "if({$indexMax} == count+1){ $('#{$adder}').slideUp();}") . "
+				" . ($max == 0 ? "" : "}") . "
 				
 				$('#{$mains['id']}-inner-div').sortable({
 				    items : '.imgBox',
@@ -1075,46 +1075,46 @@ final Class FormMaker {
         $mains['class'] = str_replace('form-control ', '', $mains['class']);
         
         //making a unique names
-        $rawName = str_replace(['[', ']'], '', studly_case($mains['name']));
-        $delFunction = 'del'.$rawName;
+        $rawName     = str_replace(['[', ']'], '', studly_case($mains['name']));
+        $delFunction = 'del' . $rawName;
         
         $classHaveFile = '';
-        $icon = 'fa-file';
-        $dirToGo = '';
+        $icon          = 'fa-file';
+        $dirToGo       = '';
         if ( ! empty($mains['value'])) {
             
             $dirToGo = pathinfo($mains['value'], PATHINFO_DIRNAME);
             if ($dirToGo == DS) {
                 $dirToGo = '';
             }
-            $basePath = config('filesystems.disks.local.root');
-            $spl = new SplFileInfo($basePath.$mains['value']);
-            $icon = File::getType(File::typeDetect($spl), 'icon');
+            $basePath      = config('filesystems.disks.local.root');
+            $spl           = new SplFileInfo($basePath . $mains['value']);
+            $icon          = File::getType(File::typeDetect($spl), 'icon');
             $classHaveFile = 'haveFile';
         }
         
         //the main html part
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-            <div class="'.$this->labelClass.'">
-                <label for="'.$mains['id'].'" class="control-label pull-left">'.$mains['title'].'</label>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+            <div class="' . $this->labelClass . '">
+                <label for="' . $mains['id'] . '" class="control-label pull-left">' . $mains['title'] . '</label>
                 <div class="clearfix"></div>
             </div>
-            <div class="'.$this->holderClass.'">
-                <div class="clearfix" id="'.$mains['id'].'-inner-div">
-                    <div class="fileBox '.$classHaveFile.'" id="'.$mains['id'].'0-parent" >
-						<button type="button" class="btn btn-danger btn-sm boxPurger tooltips" title="'.trans('messages.delete').'" onclick="'.$delFunction.'(this);" >
+            <div class="' . $this->holderClass . '">
+                <div class="clearfix" id="' . $mains['id'] . '-inner-div">
+                    <div class="fileBox ' . $classHaveFile . '" id="' . $mains['id'] . '0-parent" >
+						<button type="button" class="btn btn-danger btn-sm boxPurger tooltips" title="' . trans('messages.delete') . '" onclick="' . $delFunction . '(this);" >
 							<i class="fa fa-trash-o"></i>
 						</button>
-						<button type="button" onclick="callLibrary(\''.$mains['id'].'0\' , \''.$options['types'].'\' , \''.$dirToGo.
-                       '\');" class="btn btn-default fileSelector tooltips" title="'.trans('messages.click to choose file').'" data-placement="left" >
-							<p dir="ltr" >'.$mains['value'].'</p>
-							<i class="fa fa-lg '.$icon.'"></i>
-							<input type="hidden" id="'.$mains['id'].'0" name="'.$mains['name'].'" value="'.$mains['value'].'" >
+						<button type="button" onclick="callLibrary(\'' . $mains['id'] . '0\' , \'' . $options['types'] . '\' , \'' . $dirToGo .
+                       '\');" class="btn btn-default fileSelector tooltips" title="' . trans('messages.click to choose file') . '" data-placement="left" >
+							<p dir="ltr" >' . $mains['value'] . '</p>
+							<i class="fa fa-lg ' . $icon . '"></i>
+							<input type="hidden" id="' . $mains['id'] . '0" name="' . $mains['name'] . '" value="' . $mains['value'] . '" >
 						</button>
 					</div>
                 </div>
-                '.$mains['info'].'
-                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+                ' . $mains['info'] . '
+                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
             </div>
         </div>';
         
@@ -1123,7 +1123,7 @@ final Class FormMaker {
 			function {$delFunction}(elm){
 				$(elm).parent().removeClass('haveFile');
 				var mainBtn = $(elm).siblings();
-				mainBtn.children('p').text('".trans('words.choose')."');
+				mainBtn.children('p').text('" . trans('words.choose') . "');
 				mainBtn.children('i').attr('class' , 'fa fa-lg fa-file');
 				mainBtn.children('input').val('');
 				$('.tooltip').remove();
@@ -1173,40 +1173,40 @@ final Class FormMaker {
         $mains['class'] = str_replace('form-control ', '', $mains['class']);
         
         //making a unique names
-        $rawName = str_replace(['[', ']'], '', studly_case($mains['name']));
-        $addFunction = 'add'.$rawName;
-        $delFunction = 'del'.$rawName;
-        $indexMax = 'max'.$rawName;
-        $adder = 'btn'.$rawName;
+        $rawName     = str_replace(['[', ']'], '', studly_case($mains['name']));
+        $addFunction = 'add' . $rawName;
+        $delFunction = 'del' . $rawName;
+        $indexMax    = 'max' . $rawName;
+        $adder       = 'btn' . $rawName;
         
         //the main html part
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div">
-                            <div class="'.$this->labelClass.'">
-                                <label for="'.$mains['id'].'" class="control-label pull-left">'.$mains['title'].'</label>
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div">
+                            <div class="' . $this->labelClass . '">
+                                <label for="' . $mains['id'] . '" class="control-label pull-left">' . $mains['title'] . '</label>
                                 <div class="clearfix"></div>
-                                <button id="'.$adder.'" type="button" class="btn btn-info tooltips btn-add" data-placement="bottom" title="'.trans('words.add file').'" onclick="'.
-                       $addFunction.'(\''.$mains['id'].'\' , \''.$mains['name'].'\' , \'\', \'\', \'\' );" >
+                                <button id="' . $adder . '" type="button" class="btn btn-info tooltips btn-add" data-placement="bottom" title="' . trans('words.add file') . '" onclick="' .
+                       $addFunction . '(\'' . $mains['id'] . '\' , \'' . $mains['name'] . '\' , \'\', \'\', \'\' );" >
 					                <i class="fa fa-lg fa-plus"></i>
 					            </button>
                             </div>
-                            <div class="'.$this->holderClass.'">
-                                <div class="clearfix" id="'.$mains['id'].'-inner-div">   
+                            <div class="' . $this->holderClass . '">
+                                <div class="clearfix" id="' . $mains['id'] . '-inner-div">   
                                 </div>
-                                '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+                                ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
         //getting the values and generating the exclusive part
         $basePath = config('filesystems.disks.local.root');
-        $values = $mains['value'];
+        $values   = $mains['value'];
         if ( ! is_array($values)) {
             $values = explode(',', $values);
         }
         $callScript = '';
         foreach ($values as $value) {
             if ( ! empty($value)) {
-                $spl = new SplFileInfo($basePath.$value);
+                $spl     = new SplFileInfo($basePath . $value);
                 $dirToGo = pathinfo($value, PATHINFO_DIRNAME);
                 if ($dirToGo == DS) {
                     $dirToGo = '';
@@ -1232,22 +1232,22 @@ final Class FormMaker {
 				
 				var count = $('#' + div + '-inner-div > .fileBox').length;
 				
-				".($max == 0 ? "" : "if({$indexMax} > count ){")."
+				" . ($max == 0 ? "" : "if({$indexMax} > count ){") . "
 					var classHaveFile = 'haveFile';
 					var title = file;
 					if(typeof(file) == 'undefined' || file == ''){
 						file = '';
-						title = '".trans('words.choose')."';
+						title = '" . trans('words.choose') . "';
 						classHaveFile = '';
 						icon = 'fa-file';
 					}
 					
 					$('#' + div + '-inner-div').append('<div class=\"fileBox ' + classHaveFile + '\" id=\"' + div + fileIndex + '-parent\" >'+
-									'<button type=\"button\" class=\"btn btn-danger btn-sm boxRemover \" title=\"".trans('messages.delete')."\" onclick=\"{$delFunction}(this);\" >'+
+									'<button type=\"button\" class=\"btn btn-danger btn-sm boxRemover \" title=\"" . trans('messages.delete') . "\" onclick=\"{$delFunction}(this);\" >'+
 				                        '<i class=\"fa fa-trash-o\"></i>'+
 				                    '</button>'+
-				                    '<button type=\"button\" onclick=\"callLibrary(\'' + div + fileIndex + '\' , \'{$options['types']}\' ,  \'' + toGo + '\' );\" class=\"btn btn-default fileSelector \" title=\"".
-                         trans('messages.click to choose file')."\" data-placement=\"left\" >'+
+				                    '<button type=\"button\" onclick=\"callLibrary(\'' + div + fileIndex + '\' , \'{$options['types']}\' ,  \'' + toGo + '\' );\" class=\"btn btn-default fileSelector \" title=\"" .
+                         trans('messages.click to choose file') . "\" data-placement=\"left\" >'+
 					                    '<p dir=\"ltr\" >' + title + '</p>'+
 					                    '<i class=\"fa fa-lg ' + icon + '\"></i>'+
 					                    '<input type=\"hidden\" id=\"' + div + fileIndex + '\" name=\"' + name + '\" value=\"' + file + '\" >'+
@@ -1258,8 +1258,8 @@ final Class FormMaker {
 					
 					fileIndex++;	
 				
-				".($max == 0 ? "" : "if({$indexMax} == count+1){ $('#{$adder}').slideUp();}")."
-				".($max == 0 ? "" : "}")."
+				" . ($max == 0 ? "" : "if({$indexMax} == count+1){ $('#{$adder}').slideUp();}") . "
+				" . ($max == 0 ? "" : "}") . "
 				
 				//reloading the sortable
 				$('#{$mains['id']}-inner-div').sortable({
@@ -1456,39 +1456,39 @@ final Class FormMaker {
      */
     public function addRadio($name, $options = []) {
         
-        $mains = $this->main($name, $options);
+        $mains          = $this->main($name, $options);
         $mains['class'] = str_replace('form-control', '', $mains['class']);
         
         if (isset($options['list'])) {
-            $checked = $mains['value'];
-            $mod = 12 % count($options['list']);
+            $checked  = $mains['value'];
+            $mod      = 12 % count($options['list']);
             $colClass = 'btn btn-default';
             if ($mod == 0) {
-                $colClass .= ' col-xs-'.(12 / count($options['list']));
+                $colClass .= ' col-xs-' . (12 / count($options['list']));
             }
             
             $temp = '<div class="btn-group col-xs-12" data-toggle="buttons">';
             foreach ($options['list'] as $value => $item) {
                 
                 $checkClass = '';
-                $checkAttr = '';
+                $checkAttr  = '';
                 if ("$value" == "$checked") {
                     $checkClass = ' active';
-                    $checkAttr = ' checked="checked" ';
+                    $checkAttr  = ' checked="checked" ';
                 }
-                $temp .= '<label class="'.$colClass.$checkClass.'">
-                                <input '.$checkAttr.' type="radio" name="'.$mains['name'].'" class="'.$mains['class'].'" value="'.$value.'" autocomplete="off" >'.$item.'
+                $temp .= '<label class="' . $colClass . $checkClass . '">
+                                <input ' . $checkAttr . ' type="radio" name="' . $mains['name'] . '" class="' . $mains['class'] . '" value="' . $value . '" autocomplete="off" >' . $item . '
                         </label >';
             }
             $temp .= '</div>';
             $mains['value'] = $temp;
         }
         
-        $this->form .= str_replace('#NAME#', $mains['name'], '<div class="form-group" id="'.$mains['id'].'-div" >
-                            <label class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                <div class="row">'.$mains['value'].'</div>
-                                '.$mains['info'].'
+        $this->form .= str_replace('#NAME#', $mains['name'], '<div class="form-group" id="' . $mains['id'] . '-div" >
+                            <label class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                <div class="row">' . $mains['value'] . '</div>
+                                ' . $mains['info'] . '
                             </div>
                         </div>');
         
@@ -1505,7 +1505,7 @@ final Class FormMaker {
      */
     public function addCheckBox($name, $options = []) {
         
-        $mains = $this->main($name, $options);
+        $mains          = $this->main($name, $options);
         $mains['class'] = str_replace('form-control', '', $mains['class']);
         
         if (isset($options['list']) && ! empty($options['list'])) {
@@ -1513,34 +1513,34 @@ final Class FormMaker {
             if ( ! is_array($checked)) {
                 $checked = [$checked];
             }
-            $mod = 12 % count($options['list']);
+            $mod      = 12 % count($options['list']);
             $colClass = 'btn btn-default';
             if ($mod == 0) {
-                $colClass .= ' col-xs-'.(12 / count($options['list']));
+                $colClass .= ' col-xs-' . (12 / count($options['list']));
             }
             
             $temp = '<div class="btn-group col-xs-12" data-toggle="buttons">';
             foreach ($options['list'] as $value => $item) {
                 
                 $checkClass = '';
-                $checkAttr = '';
+                $checkAttr  = '';
                 
                 if (in_array($value, $checked)) {
                     $checkClass = ' active';
-                    $checkAttr = ' checked="checked" ';
+                    $checkAttr  = ' checked="checked" ';
                 }
-                $temp .= '<label class="'.$colClass.$checkClass.'">
-                                <input '.$checkAttr.' type="checkbox" name="'.$mains['name'].'" class="'.$mains['class'].'" value="'.$value.'" autocomplete="off" >'.$item.'
+                $temp .= '<label class="' . $colClass . $checkClass . '">
+                                <input ' . $checkAttr . ' type="checkbox" name="' . $mains['name'] . '" class="' . $mains['class'] . '" value="' . $value . '" autocomplete="off" >' . $item . '
                         </label >';
             }
             $temp .= '</div>';
             $mains['value'] = $temp;
         }
-        $this->form .= str_replace('#NAME#', $mains['name'].'[]', '<div class="form-group" id="'.$mains['id'].'-div" >
-                            <label class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                <div class="row">'.$mains['value'].'</div>
-                                '.$mains['info'].'
+        $this->form .= str_replace('#NAME#', $mains['name'] . '[]', '<div class="form-group" id="' . $mains['id'] . '-div" >
+                            <label class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                <div class="row">' . $mains['value'] . '</div>
+                                ' . $mains['info'] . '
                             </div>
                         </div>');
         
@@ -1559,26 +1559,26 @@ final Class FormMaker {
         
         SelectAsset::add();
         
-        $mains = $this->main($name, $options);
+        $mains  = $this->main($name, $options);
         $prompt = '';
         if ( ! in_array('multiple', $options)) {
             if (isset($options['prompt'])) {
                 if ($options['prompt'] != false) {
-                    $prompt = '<option value="">'.$options['prompt'].'</option>';
+                    $prompt = '<option value="">' . $options['prompt'] . '</option>';
                 }
                 unset($options['prompt']);
             } else {
-                $prompt = '<option value="">'.trans('words.choose').'</option>';
+                $prompt = '<option value="">' . trans('words.choose') . '</option>';
             }
         }
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div" >
-                            <label class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                <select id="'.$mains['id'].'" name="'.$mains['name'].'" '.$this->extra($mains, $options).' >
-                                '.$prompt.$mains['value'].'
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div" >
+                            <label class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                <select id="' . $mains['id'] . '" name="' . $mains['name'] . '" ' . $this->extra($mains, $options) . ' >
+                                ' . $prompt . $mains['value'] . '
                                 </select>
-                                '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+                                ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -1624,21 +1624,21 @@ final Class FormMaker {
         if ( ! in_array('multiple', $options)) {
             if (isset($options['prompt'])) {
                 if ($options['prompt'] != false) {
-                    $prompt = '<option value="">'.$options['prompt'].'</option>';
+                    $prompt = '<option value="">' . $options['prompt'] . '</option>';
                 }
                 unset($options['prompt']);
             } else {
-                $prompt = '<option value="">'.trans('words.choose').'</option>';
+                $prompt = '<option value="">' . trans('words.choose') . '</option>';
             }
         }
-        $this->form .= '<div class="form-group" id="'.$mains['id'].'-div" >
-                            <label class="'.$this->labelClass.' control-label">'.$mains['title'].'</label>
-                            <div class="'.$this->holderClass.'">
-                                <select data-live-search="true" id="'.$mains['id'].'" name="'.$mains['name'].'" '.$this->extra($mains, $options).' >
-                                '.$prompt.$mains['value'].'
+        $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div" >
+                            <label class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
+                            <div class="' . $this->holderClass . '">
+                                <select data-live-search="true" id="' . $mains['id'] . '" name="' . $mains['name'] . '" ' . $this->extra($mains, $options) . ' >
+                                ' . $prompt . $mains['value'] . '
                                 </select>
-                                '.$mains['info'].'
-                                <ol class="help-block" id="'.$mains['id'].'-msg"></ol>
+                                ' . $mains['info'] . '
+                                <ol class="help-block" id="' . $mains['id'] . '-msg"></ol>
                             </div>
                         </div>';
         
@@ -1681,9 +1681,9 @@ final Class FormMaker {
     public function addLegend($text, $small = null) {
         
         $this->form .= '<div class="form-group">
-                            <div class="'.$this->labelClass.'" ></div>
-                            <div class="'.$this->holderClass.'" >
-                                <h4>'.$text.' '.(is_null($small) ? '' : '<small>'.$small.'</small>').'</h4>
+                            <div class="' . $this->labelClass . '" ></div>
+                            <div class="' . $this->holderClass . '" >
+                                <h4>' . $text . ' ' . (is_null($small) ? '' : '<small>' . $small . '</small>') . '</h4>
                             </div>
                             <div class="clearfix"></div>
                             <hr style="margin: 5px;" />
@@ -1715,7 +1715,6 @@ final Class FormMaker {
     /**
      * @internal param string $class
      * @internal param callable $data
-     *
      * @return $this
      */
     public function box() {
@@ -1727,11 +1726,11 @@ final Class FormMaker {
             $data = $args[0];
         } else {
             $class = $args[0];
-            $data = $args[1];
+            $data  = $args[1];
         }
         
         //the callable cant be launched when added in the string
-        $this->form .= '<div class="'.$class.'" >';
+        $this->form .= '<div class="' . $class . '" >';
         $this->form .= $data($this, $this->model);
         $this->form .= '</div>';
         
@@ -1740,7 +1739,6 @@ final Class FormMaker {
     
     /**
      * @param string|null $mainBtnTitle
-     *
      * @param string|null $saveBtnTitle
      *
      * @return FormMaker $this
@@ -1785,16 +1783,16 @@ final Class FormMaker {
             
             if ( ! empty($saveBtnTitle) && ! empty($saveBtn)) {
                 $saveBtn = '<button type="submit" name="stay" value="1" class="btn btn-info">
-								<i class="fa fa-lg fa-edit"></i> '.$saveBtnTitle.'
+								<i class="fa fa-lg fa-edit"></i> ' . $saveBtnTitle . '
 							</button>';
             }
             
             $this->form .= '<br/>
 			<div class="form-group">
-				<div class="'.$this->labelClass.'"></div>
-				<div class="'.$this->holderClass.'">
-					<button type="submit" class="btn btn-success">'.$mainBtn.'</button>
-					'.$this->redirect.$saveBtn.'
+				<div class="' . $this->labelClass . '"></div>
+				<div class="' . $this->holderClass . '">
+					<button type="submit" class="btn btn-success">' . $mainBtn . '</button>
+					' . $this->redirect . $saveBtn . '
 				</div>
 			</div>';
             
@@ -1818,11 +1816,11 @@ final Class FormMaker {
         $this->addSubmitButton();
         
         return '<form 
-				action="'.$this->url.'" 
-				method="'.$this->method.'" 
-				class="form-horizontal '.$searchClass.'" 
-				autocomplete="'.$this->autoComplete.'" 
-				>'.$this->renderPartial(false).'</form>';
+				action="' . $this->url . '" 
+				method="' . $this->method . '" 
+				class="form-horizontal ' . $searchClass . '" 
+				autocomplete="' . $this->autoComplete . '" 
+				>' . $this->renderPartial(false) . '</form>';
         
     }
     
@@ -1835,7 +1833,7 @@ final Class FormMaker {
      */
     public function renderPartial($raw = true) {
         
-        return $this->form.($raw ? '' : $this->methodField);
+        return $this->form . ($raw ? '' : $this->methodField);
     }
     
     /**
@@ -1876,7 +1874,7 @@ final Class FormMaker {
     public function setRedirect($redirect = null) {
         
         if ($redirect) {
-            $this->redirect = '<input type="hidden" name="redirect" value="'.$redirect.'">';
+            $this->redirect = '<input type="hidden" name="redirect" value="' . $redirect . '">';
         }
         
         return $this;
@@ -1926,8 +1924,8 @@ final Class FormMaker {
         
         $this->method = $method;
         if ( ! preg_grep("/{$this->method}/i", ['get', 'post'])) {
-            $this->methodField = '<input type="hidden" name="_method" value="'.$this->method.'">';
-            $this->method = 'POST';
+            $this->methodField = '<input type="hidden" name="_method" value="' . $this->method . '">';
+            $this->method      = 'POST';
         }
         
         return $this;
@@ -1938,7 +1936,6 @@ final Class FormMaker {
      * @param int $holderSize
      *
      * @return FormMaker $this
-     *
      */
     public function resetColSizeRatio($labelSize = 2, $holderSize = 0) {
         
@@ -1954,8 +1951,8 @@ final Class FormMaker {
             $holderSize = $remainSize;
         }
         
-        $this->labelClass = 'col-xs-'.$labelSize;
-        $this->holderClass = 'col-xs-'.$holderSize;
+        $this->labelClass  = 'col-xs-' . $labelSize;
+        $this->holderClass = 'col-xs-' . $holderSize;
         
         return $this;
     }
@@ -2031,7 +2028,7 @@ final Class FormMaker {
         //name attribute
         $mains['name'] = $name;
         if ($this->namesInArray) {
-            $mains['name'] = $this->name.'['.$name.']';
+            $mains['name'] = $this->name . '[' . $name . ']';
         }
         
         //multiple attribute
@@ -2045,7 +2042,7 @@ final Class FormMaker {
             $mains['id'] = $attributes['id'];
         }
         if ($this->idPrefix && ! empty($mains['id'])) {
-            $mains['id'] = $this->idPrefix.'-'.$mains['id'];
+            $mains['id'] = $this->idPrefix . '-' . $mains['id'];
         }
         
         //class attribute
@@ -2054,12 +2051,12 @@ final Class FormMaker {
             $mains['class'] = $attributes['class'];
         }
         if ($this->classPrefix && ! empty($mains['class'])) {
-            $mains['class'] = $this->classPrefix.'-'.$mains['class'];
+            $mains['class'] = $this->classPrefix . '-' . $mains['class'];
         }
         $mains['class'] .= ' form-control';
         
         //title attribute
-        $mains['title'] = trans('validation.attributes.'.$name);
+        $mains['title'] = trans('validation.attributes.' . $name);
         if (isset($attributes['title'])) {
             $mains['title'] = $attributes['title'];
         }
@@ -2067,7 +2064,7 @@ final Class FormMaker {
         //info in .help-block element
         $mains['info'] = '';
         if (isset($attributes['info'])) {
-            $mains['info'] = '<p class="help-block">'.$attributes['info'].'</p>';
+            $mains['info'] = '<p class="help-block">' . $attributes['info'] . '</p>';
         }
         
         //value attribute + default
@@ -2101,7 +2098,7 @@ final Class FormMaker {
     private function extra(array $mains, array $options = []) {
         
         unset($options['value']);
-        $remains = array_diff($options, $mains);
+        $remains          = array_diff($options, $mains);
         $remains['class'] = $mains['class'];
         
         $extra = [];
@@ -2109,7 +2106,7 @@ final Class FormMaker {
             if (is_numeric($key)) {
                 $extra[] = $value;
             } else {
-                $extra[] = $key.'="'.$value.'"';
+                $extra[] = $key . '="' . $value . '"';
             }
         }
         
