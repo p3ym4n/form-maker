@@ -965,7 +965,7 @@ final Class FormMaker {
         $callScript = '';
         foreach ($values as $value) {
             if ( ! empty($value)) {
-                $imgPath = config('filesystem.disks.local.url') . $value;
+                $imgPath = config('filesystems.disks.local.url') . $value;
                 $dirToGo = pathinfo($value, PATHINFO_DIRNAME);
                 if ($dirToGo == DS) {
                     $dirToGo = '';
@@ -1634,7 +1634,7 @@ final Class FormMaker {
         $this->form .= '<div class="form-group" id="' . $mains['id'] . '-div" >
                             <label class="' . $this->labelClass . ' control-label">' . $mains['title'] . '</label>
                             <div class="' . $this->holderClass . '">
-                                <select data-live-search="true" id="' . $mains['id'] . '" name="' . $mains['name'] . '" ' . $this->extra($mains, $options) . ' >
+                                <select data-live-search="true" data-selected-text-format="count" id="' . $mains['id'] . '" name="' . $mains['name'] . '" ' . $this->extra($mains, $options) . ' >
                                 ' . $prompt . $mains['value'] . '
                                 </select>
                                 ' . $mains['info'] . '
