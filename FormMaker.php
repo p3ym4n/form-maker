@@ -2069,7 +2069,7 @@ final Class FormMaker {
         
         //checking for any default values or closures
         $mains['value'] = '';
-        if ($attributes['default']) {
+        if (isset($attributes['default'])) {
             $mains['value'] = value($attributes['default']);
         }
         
