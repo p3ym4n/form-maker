@@ -181,7 +181,7 @@ final Class FormMaker {
      */
     public function addHidden($name, $options = []) {
         
-        $mains = $this->main($name, $options);
+        $mains      = $this->main($name, $options);
         $this->form .= '<input type="hidden" id="' . $mains['id'] . '" name="' . $mains['name'] . '" value="' . $mains['value'] . '"  ' . $this->extra($mains, $options) . ' >';
         
         return $this;
@@ -1211,7 +1211,7 @@ final Class FormMaker {
                 if ($dirToGo == DS) {
                     $dirToGo = '';
                 }
-                $icon = File::getType(File::typeDetect($spl), 'icon');
+                $icon       = File::getType(File::typeDetect($spl), 'icon');
                 $callScript .= " {$addFunction}('{$mains['id']}' , '{$mains['name']}' , '{$value}' , '{$icon}' , '{$dirToGo}'); ";
             }
         }
@@ -1480,7 +1480,7 @@ final Class FormMaker {
                                 <input ' . $checkAttr . ' type="radio" name="' . $mains['name'] . '" class="' . $mains['class'] . '" value="' . $value . '" autocomplete="off" >' . $item . '
                         </label >';
             }
-            $temp .= '</div>';
+            $temp           .= '</div>';
             $mains['value'] = $temp;
         }
         
@@ -1533,7 +1533,7 @@ final Class FormMaker {
                                 <input ' . $checkAttr . ' type="checkbox" name="' . $mains['name'] . '" class="' . $mains['class'] . '" value="' . $value . '" autocomplete="off" >' . $item . '
                         </label >';
             }
-            $temp .= '</div>';
+            $temp           .= '</div>';
             $mains['value'] = $temp;
         }
         $this->form .= str_replace('#NAME#', $mains['name'] . '[]', '<div class="form-group" id="' . $mains['id'] . '-div" >
@@ -2067,20 +2067,23 @@ final Class FormMaker {
             $mains['info'] = '<p class="help-block">' . $attributes['info'] . '</p>';
         }
         
-        //value attribute + default
-        $mains['value'] = isset($attributes['default']) ? $attributes['default'] : '';
+        //checking for any default values or closures
+        $mains['value'] = '';
+        if ($attributes['default']) {
+            $mains['value'] = value($attributes['default']);
+        }
         
+        //initial value from the model
+        if ( ! empty($this->model)) {
+            $mains['value'] = $this->model->getAttribute($name);
+        }
+        
+        //now check for any value situations
         if (isset($attributes['value'])) {
-            
-            if (is_callable($attributes['value'])) {
+            if (is_callable($attributes['value']) && ! empty($this->model)) {
                 $mains['value'] = $attributes['value']($this->model->getAttribute($name), $this->model);
             } else {
-                $mains['value'] = $attributes['value'];
-            }
-            
-        } else {
-            if ( ! is_null($this->model)) {
-                $mains['value'] = $this->model->getAttribute($name);
+                $mains['value'] = value($attributes['value']);
             }
         }
         
