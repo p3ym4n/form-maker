@@ -531,7 +531,7 @@ final Class FormMaker {
         $value = $mains['value'];
         if ( ! empty($value)) {
             $value = JDate::createFromCarbon($value)->format(FORMAT_ONLY_DATE);
-            list($year, $month, $day) = explode('/', $value);
+            list($year, $month, $day) = explode('-', $value);
             $value = json_encode([$year, $month, $day], JSON_NUMERIC_CHECK);
         }
         
@@ -567,7 +567,7 @@ final Class FormMaker {
                 formatter: function (unixDate) {
                     var pdate = new persianDate(unixDate);
                     pdate.formatPersian = false;
-                    return pdate.format('YYYY/MM/DD');
+                    return pdate.format('YYYY-MM-DD');
                 },
                 toolbox: {
                     text: {
@@ -627,11 +627,11 @@ final Class FormMaker {
         $value = $mains['value'];
         if ( ! empty($value)) {
             $value = JDate::createFromCarbon($value)->format(FORMAT_FULL_DATE);
-            $dates = explode(' ', $value);
+            $dates = explode('_', $value);
             if ( ! isset($dates[1])) {
                 $dates[1] = '00:00:00';
             }
-            list($year, $month, $day) = explode('/', $dates[0]);
+            list($year, $month, $day) = explode('-', $dates[0]);
             list($hour, $minute, $second) = explode(':', $dates[1]);
             
             $value = json_encode([$year, $month, $day, $hour, $minute, $second], JSON_NUMERIC_CHECK);
@@ -669,7 +669,7 @@ final Class FormMaker {
                 formatter: function (unixDate) {
                     var pdate = new persianDate(unixDate);
                     pdate.formatPersian = false;
-                    return pdate.format('YYYY/MM/DD HH:mm:ss');
+                    return pdate.format('YYYY-MM-DD_HH:mm:ss');
                 },
                 toolbox: {
                     text: {
